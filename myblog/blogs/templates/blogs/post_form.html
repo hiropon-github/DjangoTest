@@ -1,0 +1,14 @@
+﻿{% extends 'base.html' %}
+
+{% block title %}{{ object|yesno:'Edit,Add New' }} Post{% endblock %}
+
+{% block content %}
+<h1>{{ object|yesno:'Edit,Add New' }} Post</h1>
+<section class="common-form">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="submit">{{ object|yesno:'Update,Save' }}</button>
+    </form>
+</section>
+{% endblock %}
